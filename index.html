@@ -83,7 +83,6 @@ var audioEnabled = true;
 var audioCtx = null;
 var intervalId = null;
 var isAnalyzing = false;
-var allSignals = [];
 var allCharts = {};
 var currentData = {};
 
@@ -247,7 +246,6 @@ document.getElementById('sl_' + index).innerText = '$' + signal.sl;
 document.getElementById('tp_' + index).innerText = '$' + signal.tp;
 document.getElementById('rationale_' + index).innerText = signal.rationale + ' (الثقة ' + signal.confidence + '%)';
 document.getElementById('conf_' + index).innerText = '⚡ ' + signal.confidence + '%';
-// لون الخلفية حسب الإشارة
 var card = document.getElementById('card_' + index);
 card.style.borderColor = signal.signal === 'BUY' ? '#00b894' : '#ff6b6b';
 }
