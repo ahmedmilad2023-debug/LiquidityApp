@@ -8,46 +8,50 @@
 </script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: #131722; color: #d1d4dc; font-family: 'Segoe UI', Tahoma, sans-serif; padding: 15px; }
+body { background: #131722; color: #d1d4dc; font-family: 'Segoe UI', Tahoma, sans-serif; padding: 12px; }
 .app-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
-.app-header h1 { color: #fff; font-size: 20px; background: #2a2e39; padding: 6px 16px; border-radius: 30px; border-right: 4px solid #2962ff; }
-.share-btn { background: #2962ff; border: none; padding: 8px 20px; border-radius: 30px; color: #fff; font-weight: bold; cursor: pointer; }
-.risk-calculator { background: #1e222d; border-radius: 16px; padding: 15px 20px; margin-bottom: 20px; border: 1px solid #2a2e39; display: flex; flex-wrap: wrap; align-items: center; gap: 15px; }
-.risk-calculator label { color: #a6b1c2; font-size: 14px; }
-.risk-calculator input { background: #2a2e39; border: 1px solid #3a3e49; color: #fff; padding: 6px 12px; border-radius: 30px; width: 120px; }
-.risk-calculator .result { background: #2962ff; padding: 6px 18px; border-radius: 30px; font-weight: bold; }
-.chart-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 30px; }
-.chart-box { background: #1e222d; border-radius: 12px; padding: 10px; border: 1px solid #2a2e39; }
-.chart-box .symbol-title { color: #fff; font-weight: bold; font-size: 14px; margin-bottom: 5px; text-align: center; }
-.chart-box .mini-chart { width: 100%; height: 180px; }
-.signal-badge { display: inline-block; padding: 2px 10px; border-radius: 30px; font-weight: bold; font-size: 11px; }
-.buy-badge { background: #00b894; color: #fff; }
-.sell-badge { background: #ff6b6b; color: #fff; }
-.signals-section { margin-top: 20px; }
-.signals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 15px; }
-.signal-card { background: #1e222d; border-radius: 14px; padding: 16px; border: 1px solid #2a2e39; }
-.signal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.signal-symbol { font-size: 18px; font-weight: bold; color: #fff; }
-.signal-type { padding: 4px 14px; border-radius: 30px; font-weight: bold; font-size: 13px; }
-.buy { background: #00b894; color: #fff; }
-.sell { background: #ff6b6b; color: #fff; }
-.signal-details { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; font-size: 13px; margin: 10px 0; }
-.signal-details span { color: #a6b1c2; }
-.signal-details strong { color: #fff; }
-.tp { color: #00b894; }
-.sl { color: #ff6b6b; }
-.analysis-box { background: #131722; padding: 10px; border-radius: 8px; border-right: 3px solid #f0b90b; margin-top: 10px; }
+.app-header h1 { font-size: 20px; background: #2a2e39; padding: 6px 16px; border-radius: 30px; border-right: 4px solid #2962ff; }
+.share-btn { background: #2962ff; border: none; padding: 6px 18px; border-radius: 30px; color: #fff; font-weight: bold; cursor: pointer; }
+.risk-calculator { background: #1e222d; border-radius: 16px; padding: 12px 18px; margin-bottom: 15px; border: 1px solid #2a2e39; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 14px; }
+.risk-calculator label { color: #a6b1c2; }
+.risk-calculator input { background: #2a2e39; border: 1px solid #3a3e49; color: #fff; padding: 4px 10px; border-radius: 30px; width: 100px; }
+.risk-calculator .result { background: #2962ff; padding: 4px 16px; border-radius: 30px; font-weight: bold; }
+.assets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 20px; }
+.asset-card { background: #1e222d; border-radius: 16px; padding: 14px; border: 1px solid #2a2e39; transition: 0.2s; }
+.asset-card:hover { border-color: #2962ff; }
+.asset-header { display: flex; justify-content: space-between; align-items: center; }
+.asset-symbol { font-weight: bold; font-size: 18px; color: #fff; }
+.asset-price { font-size: 20px; font-weight: bold; color: #fff; }
+.asset-change { font-size: 14px; }
+.asset-change.positive { color: #00b894; }
+.asset-change.negative { color: #ff6b6b; }
+.asset-chart { width: 100%; height: 120px; margin: 8px 0; }
+.asset-actions { display: flex; gap: 10px; margin: 8px 0; }
+.asset-actions button { flex: 1; padding: 6px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; }
+.btn-buy { background: #00b894; color: #fff; }
+.btn-sell { background: #ff6b6b; color: #fff; }
+.asset-details { background: #131722; border-radius: 10px; padding: 12px; margin-top: 10px; }
+.detail-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; border-bottom: 1px solid #2a2e39; }
+.detail-row:last-child { border: none; }
+.detail-label { color: #a6b1c2; }
+.detail-value { color: #fff; }
+.detail-value.tp { color: #00b894; }
+.detail-value.sl { color: #ff6b6b; }
+.analysis-box { background: #0d1017; padding: 10px; border-radius: 8px; border-right: 3px solid #f0b90b; margin-top: 10px; }
 .analysis-box .label { color: #f0b90b; font-weight: bold; font-size: 12px; display: block; margin-bottom: 3px; }
 .analysis-box p { font-size: 12px; color: #b2b5be; line-height: 1.5; margin: 0; }
 .confidence-badge { background: #2962ff; padding: 2px 10px; border-radius: 30px; font-size: 11px; color: #fff; display: inline-block; margin-top: 5px; }
-.no-signals { padding: 30px; text-align: center; background: #1e222d; border-radius: 16px; color: #6a6f7d; grid-column: 1 / -1; }
-.history-toggle { margin: 15px 0; }
-.history-toggle button { background: transparent; border: 1px solid #2a2e39; color: #d1d4dc; padding: 5px 14px; border-radius: 30px; cursor: pointer; }
+.signal-tag { background: #2a2e39; padding: 2px 12px; border-radius: 30px; font-size: 12px; }
+.signal-tag.buy { background: #00b894; color: #fff; }
+.signal-tag.sell { background: #ff6b6b; color: #fff; }
+.no-signals { padding: 30px; text-align: center; color: #6a6f7d; grid-column: 1 / -1; }
+.history-toggle { margin: 10px 0; display: flex; gap: 10px; flex-wrap: wrap; }
+.history-toggle button { background: transparent; border: 1px solid #2a2e39; color: #d1d4dc; padding: 4px 14px; border-radius: 30px; cursor: pointer; }
+.history-toggle .clear { background: #ff6b6b; border: none; color: #fff; }
 .history-list { display: none; background: #1e222d; border-radius: 10px; padding: 15px; margin-top: 10px; max-height: 250px; overflow-y: auto; }
 .history-list.show { display: block; }
 .history-item { border-bottom: 1px solid #2a2e39; padding: 6px 0; display: flex; justify-content: space-between; flex-wrap: wrap; font-size: 12px; }
-@media (max-width: 900px) { .chart-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 600px) { .chart-grid { grid-template-columns: repeat(2, 1fr); } .signal-details { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .risk-calculator input { width: 70px; } .asset-details .detail-row { font-size: 12px; } }
 </style>
 </head>
 <body>
@@ -61,19 +65,15 @@ body { background-color: #131722; color: #d1d4dc; font-family: 'Segoe UI', Tahom
 <label>📈 سعر الدخول: <input type="number" id="priceInput" value="60000" step="100" oninput="calcRisk()"></label>
 <span class="result">📦 حجم العقد: <span id="positionSize">0.0833</span></span>
 </div>
-<div id="chartGridContainer" class="chart-grid"></div>
+<div id="assetsContainer" class="assets-grid"></div>
 <div class="history-toggle">
-<button onclick="toggleHistory()">📜 سجل الإشارات (localStorage)</button>
-<button onclick="clearHistory()" style="background:#ff6b6b;border:none;padding:5px 14px;border-radius:30px;color:#fff;cursor:pointer;float:left;">مسح</button>
+<button onclick="toggleHistory()">📜 سجل الإشارات</button>
+<button class="clear" onclick="clearHistory()">مسح</button>
 <div id="historyList" class="history-list"></div>
-</div>
-<div class="signals-section">
-<h3 style="margin-bottom:10px;">🔔 الإشارات الحية (فريم 15 دقيقة)</h3>
-<div id="signalsContainer" class="signals-grid"><div class="no-signals">⏳ جاري تحليل 10 عملات ...</div></div>
 </div>
 <script>
 // ============================================================
-// أداة تداول احترافية - 10 عملات - فريم 15 دقيقة - 50x
+// أداة تداول احترافية - 10 عملات - فريم 15 دقيقة - تصميم جديد
 // ============================================================
 var SYMBOLS = ['BTCUSDT','ETHUSDT','SOLUSDT','XRPUSDT','BNBUSDT','ADAUSDT','DOGEUSDT','DOTUSDT','LINKUSDT','LTCUSDT'];
 var DISPLAY_NAMES = ['BTC','ETH','SOL','XRP','BNB','ADA','DOGE','DOT','LINK','LTC'];
@@ -83,81 +83,70 @@ var audioEnabled = true;
 var audioCtx = null;
 var intervalId = null;
 var isAnalyzing = false;
-var signalsHistory = [];
-var allCharts = [];
-var allCandleData = {};
+var allSignals = [];
+var allCharts = {};
+var currentData = {};
 
 function calcRisk() {
 var capital = parseFloat(document.getElementById('capitalInput').value) || 0;
 var price = parseFloat(document.getElementById('priceInput').value) || 1;
-var leverage = 50;
-var size = (capital * leverage) / price;
+var size = (capital * 50) / price;
 if (size < 0) size = 0;
 document.getElementById('positionSize').innerText = size.toFixed(4);
 }
 calcRisk();
 
-function initCharts() {
-var container = document.getElementById('chartGridContainer');
+function initAssets() {
+var container = document.getElementById('assetsContainer');
 container.innerHTML = '';
-allCharts = [];
 for (var i = 0; i < SYMBOLS.length; i++) {
-var box = document.createElement('div');
-box.className = 'chart-box';
-box.id = 'chartBox_' + i;
-var title = document.createElement('div');
-title.className = 'symbol-title';
-title.innerText = DISPLAY_NAMES[i];
-box.appendChild(title);
-var chartDiv = document.createElement('div');
-chartDiv.className = 'mini-chart';
-chartDiv.id = 'chart_' + i;
-box.appendChild(chartDiv);
-container.appendChild(box);
+var card = document.createElement('div');
+card.className = 'asset-card';
+card.id = 'card_' + i;
+card.innerHTML = '<div class="asset-header"><span class="asset-symbol">' + DISPLAY_NAMES[i] + '</span><span class="asset-price" id="price_' + i + '">...</span></div>' +
+'<div class="asset-change" id="change_' + i + '">...</div>' +
+'<div class="asset-chart" id="chart_' + i + '"></div>' +
+'<div class="asset-actions"><button class="btn-buy">شراء</button><button class="btn-sell">بيع</button></div>' +
+'<div class="asset-details" id="details_' + i + '"><div class="detail-row"><span class="detail-label">وقت الصدور</span><span class="detail-value" id="time_' + i + '">-</span></div>' +
+'<div class="detail-row"><span class="detail-label">سعر الدخول (ثابت)</span><span class="detail-value" id="entryFixed_' + i + '">-</span></div>' +
+'<div class="detail-row"><span class="detail-label">سعر الدخول (مباشر)</span><span class="detail-value" id="entryLive_' + i + '">-</span></div>' +
+'<div class="detail-row"><span class="detail-label">الربح/الخسارة</span><span class="detail-value" id="pnl_' + i + '">-</span></div>' +
+'<div class="detail-row"><span class="detail-label">وقف الخسارة</span><span class="detail-value sl" id="sl_' + i + '">-</span></div>' +
+'<div class="detail-row"><span class="detail-label">الهدف</span><span class="detail-value tp" id="tp_' + i + '">-</span></div></div>' +
+'<div class="analysis-box"><span class="label">📋 تحليل الصفقة</span><p id="rationale_' + i + '">في انتظار الإشارة...</p><span class="confidence-badge" id="conf_' + i + '">-</span></div>';
+container.appendChild(card);
+var chartDiv = document.getElementById('chart_' + i);
 var chart = LightweightCharts.createChart(chartDiv, {
 layout: { background: { color: '#1e222d' }, textColor: '#d1d4dc' },
 grid: { vertLines: { color: '#2a2e39' }, horzLines: { color: '#2a2e39' } },
 width: chartDiv.clientWidth,
-height: 180,
-timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#2a2e39' }
+height: 120,
+timeScale: { visible: false }
 });
 var series = chart.addCandlestickSeries({
 upColor: '#00b894', downColor: '#ff6b6b', borderVisible: false,
 wickUpColor: '#00b894', wickDownColor: '#ff6b6b'
 });
-allCharts.push({ chart: chart, series: series, symbol: SYMBOLS[i], display: DISPLAY_NAMES[i] });
+allCharts[i] = { chart: chart, series: series };
 }
 window.addEventListener('resize', function() {
-for (var i = 0; i < allCharts.length; i++) {
+for (var i = 0; i < SYMBOLS.length; i++) {
 var el = document.getElementById('chart_' + i);
 if (el) allCharts[i].chart.applyOptions({ width: el.clientWidth });
 }
 });
 }
 
-async function fetchCandles(symbol, limit) {
-limit = limit || 80;
-var url = 'https://api.binance.com/api/v3/klines?symbol=' + symbol + '&interval=' + TIMEFRAME + '&limit=' + limit;
+async function fetchCandles(symbol) {
+var url = 'https://api.binance.com/api/v3/klines?symbol=' + symbol + '&interval=' + TIMEFRAME + '&limit=' + LIMIT;
 var response = await fetch(url);
 var data = await response.json();
-var candles = data.map(function(d) {
-return {
-time: d[0] / 1000,
-open: parseFloat(d[1]),
-high: parseFloat(d[2]),
-low: parseFloat(d[3]),
-close: parseFloat(d[4])
-};
-});
-return candles;
+return data.map(function(d) { return { time: d[0]/1000, open: parseFloat(d[1]), high: parseFloat(d[2]), low: parseFloat(d[3]), close: parseFloat(d[4]) }; });
 }
 
 function calculateFVG(candles, idx) {
 if (idx < 2) return null;
-var high2 = candles[idx-2].high;
-var low2 = candles[idx-2].low;
-var high0 = candles[idx].high;
-var low0 = candles[idx].low;
+var high2 = candles[idx-2].high, low2 = candles[idx-2].low, high0 = candles[idx].high, low0 = candles[idx].low;
 if (low0 > high2) return 'bullish';
 if (high0 < low2) return 'bearish';
 return null;
@@ -165,10 +154,8 @@ return null;
 
 function findLiquidity(candles, idx) {
 if (idx < 5) return { swingHigh: null, swingLow: null };
-var window = 5;
-var swingHigh = -Infinity;
-var swingLow = Infinity;
-for (var i = idx - window; i < idx; i++) {
+var swingHigh = -Infinity, swingLow = Infinity;
+for (var i = idx-5; i < idx; i++) {
 if (candles[i].high > swingHigh) swingHigh = candles[i].high;
 if (candles[i].low < swingLow) swingLow = candles[i].low;
 }
@@ -177,23 +164,18 @@ return { swingHigh: swingHigh, swingLow: swingLow };
 
 function calculateConfidence(candles, idx, fvgType, liquidityLevel) {
 var closes = [];
-var start = Math.max(0, idx - 20);
-for (var i = start; i < idx; i++) closes.push(candles[i].close);
+for (var i = Math.max(0, idx-20); i < idx; i++) closes.push(candles[i].close);
 var mean = closes.reduce(function(a,b){return a+b;},0) / closes.length;
 var variance = closes.reduce(function(a,b){return a + (b-mean)*(b-mean);},0) / closes.length;
-var atr = Math.sqrt(variance);
-if (atr === 0) atr = candles[idx].close * 0.01;
+var atr = Math.sqrt(variance) || candles[idx].close * 0.01;
 var price = candles[idx].close;
-var gap = 0;
-if (fvgType === 'bullish') { gap = candles[idx].low - candles[idx-2].high; }
-else { gap = candles[idx-2].low - candles[idx].high; }
-var gapStrength = Math.min(Math.abs(gap) / atr, 1.5) * 50;
+var gap = fvgType === 'bullish' ? candles[idx].low - candles[idx-2].high : candles[idx-2].low - candles[idx].high;
+var gapStrength = Math.min(Math.abs(gap)/atr, 1.5) * 50;
 var distance = Math.abs(price - liquidityLevel) / atr;
 var liquidityStrength = Math.max(0, (1 - distance)) * 30;
 var candleRange = (candles[idx].high - candles[idx].low) / atr;
 var momentum = Math.min(candleRange, 1.2) * 20;
-var confidence = gapStrength + liquidityStrength + momentum;
-return Math.min(confidence, 100);
+return Math.min(gapStrength + liquidityStrength + momentum, 100);
 }
 
 function generateSignal(symbol, display, candles) {
@@ -201,171 +183,101 @@ if (candles.length < 30) return null;
 var idx = candles.length - 1;
 var close = candles[idx].close;
 var liquidity = findLiquidity(candles, idx);
-var swingHigh = liquidity.swingHigh;
-var swingLow = liquidity.swingLow;
+var swingHigh = liquidity.swingHigh, swingLow = liquidity.swingLow;
 var fvg = calculateFVG(candles, idx);
-if (fvg === null || swingHigh === null || swingLow === null) return null;
-var confidence = 0;
-var signalType = null;
-var entry = close;
-var sl = 0;
-var tp = 0;
-var rationale = '';
-var atr = 0;
+if (!fvg || swingHigh === null || swingLow === null) return null;
+var confidence = 0, signalType = null, entry = close, sl = 0, tp = 0, rationale = '';
 var closes2 = [];
 for (var i = Math.max(0, idx-20); i < idx; i++) closes2.push(candles[i].close);
 var mean2 = closes2.reduce(function(a,b){return a+b;},0) / closes2.length;
 var variance2 = closes2.reduce(function(a,b){return a + (b-mean2)*(b-mean2);},0) / closes2.length;
-atr = Math.sqrt(variance2);
-if (atr === 0) atr = close * 0.01;
-var isSweep = false;
-var liquidityLevel = 0;
+var atr = Math.sqrt(variance2) || close * 0.01;
 if (fvg === 'bullish' && close < swingLow && close > swingLow * 0.998) {
 confidence = calculateConfidence(candles, idx, 'bullish', swingLow);
-if (confidence >= 80) {
-sl = swingLow - (atr * 1.2);
-tp = close + (close - sl) * 2;
-signalType = 'BUY';
-isSweep = true;
-liquidityLevel = swingLow;
-rationale = '🔄 اجتياح سيولة البيع (Liquidity Sweep) عند قاع ' + swingLow.toFixed(2) + ' مع فجوة قيمة صاعدة قوية (Bullish FVG). تم كسر منطقة الطلب السابقة مما يؤكد دخول السيولة.';
-}
+if (confidence >= 80) { sl = swingLow - atr*1.2; tp = close + (close-sl)*2; signalType = 'BUY'; rationale = 'اجتياح سيولة البيع عند قاع ' + swingLow.toFixed(2) + ' مع فجوة صاعدة قوية (FVG).'; }
 } else if (fvg === 'bullish' && close > swingLow && close < swingLow * 1.005) {
 confidence = calculateConfidence(candles, idx, 'bullish', swingLow);
-if (confidence >= 80) {
-sl = swingLow - (atr * 1.0);
-tp = close + (close - sl) * 2;
-signalType = 'BUY';
-isSweep = false;
-liquidityLevel = swingLow;
-rationale = '📦 كتلة أوامر شراء (Order Block) عند منطقة الطلب القريبة من القاع ' + swingLow.toFixed(2) + ' مع فجوة قيمة صاعدة. السعر يعيد اختبار الكتلة دون اجتياح كامل، مما يوحي بارتداد محتمل.';
-}
+if (confidence >= 80) { sl = swingLow - atr*1.0; tp = close + (close-sl)*2; signalType = 'BUY'; rationale = 'ارتداد من منطقة طلب (Order Block) عند ' + swingLow.toFixed(2) + ' مع فجوة صاعدة. قوة الارتداد ' + Math.round(confidence) + '%.'; }
 } else if (fvg === 'bearish' && close > swingHigh && close < swingHigh * 1.002) {
 confidence = calculateConfidence(candles, idx, 'bearish', swingHigh);
-if (confidence >= 80) {
-sl = swingHigh + (atr * 1.2);
-tp = close - (sl - close) * 2;
-signalType = 'SELL';
-isSweep = true;
-liquidityLevel = swingHigh;
-rationale = '🔄 اجتياح سيولة الشراء (Liquidity Sweep) عند قمة ' + swingHigh.toFixed(2) + ' مع فجوة قيمة هابطة قوية (Bearish FVG). تم كسر منطقة العرض السابقة مما يؤكد خروج السيولة.';
-}
+if (confidence >= 80) { sl = swingHigh + atr*1.2; tp = close - (sl-close)*2; signalType = 'SELL'; rationale = 'اجتياح سيولة الشراء عند قمة ' + swingHigh.toFixed(2) + ' مع فجوة هابطة قوية (FVG).'; }
 } else if (fvg === 'bearish' && close < swingHigh && close > swingHigh * 0.995) {
 confidence = calculateConfidence(candles, idx, 'bearish', swingHigh);
-if (confidence >= 80) {
-sl = swingHigh + (atr * 1.0);
-tp = close - (sl - close) * 2;
-signalType = 'SELL';
-isSweep = false;
-liquidityLevel = swingHigh;
-rationale = '📦 كتلة أوامر بيع (Order Block) عند منطقة العرض القريبة من القمة ' + swingHigh.toFixed(2) + ' مع فجوة قيمة هابطة. السعر يعيد اختبار الكتلة دون اجتياح كامل، مما يوحي بارتداد هبوطي.';
-}
+if (confidence >= 80) { sl = swingHigh + atr*1.0; tp = close - (sl-close)*2; signalType = 'SELL'; rationale = 'ارتداد من منطقة عرض (Order Block) عند ' + swingHigh.toFixed(2) + ' مع فجوة هابطة. قوة الارتداد ' + Math.round(confidence) + '%.'; }
 }
 if (signalType) {
-var confidenceVal = Math.round(confidence * 100) / 100;
-var entryVal = Math.round(entry * 10000) / 10000;
-var slVal = Math.round(sl * 10000) / 10000;
-var tpVal = Math.round(tp * 10000) / 10000;
-return {
-symbol: symbol,
-display: display,
-signal: signalType,
-entry: entryVal,
-sl: slVal,
-tp: tpVal,
-confidence: confidenceVal,
-rationale: rationale,
-time: new Date().toLocaleString('ar-EG', { hour12: false })
-};
+return { symbol: symbol, display: display, signal: signalType, entry: Math.round(entry*10000)/10000, sl: Math.round(sl*10000)/10000, tp: Math.round(tp*10000)/10000, confidence: Math.round(confidence*100)/100, rationale: rationale, time: new Date().toLocaleString('ar-EG', { hour12: false }) };
 }
 return null;
 }
 
 async function analyzeSymbol(index) {
-var sym = SYMBOLS[index];
-var display = DISPLAY_NAMES[index];
+var sym = SYMBOLS[index], display = DISPLAY_NAMES[index];
 try {
-var candles = await fetchCandles(sym, LIMIT);
+var candles = await fetchCandles(sym);
 if (candles && candles.length > 0) {
-allCandleData[sym] = candles;
 var series = allCharts[index].series;
 series.setData(candles);
+var last = candles[candles.length-1];
+var change = ((last.close - candles[candles.length-2].close) / candles[candles.length-2].close * 100);
+document.getElementById('price_' + index).innerText = last.close.toFixed(2);
+var changeEl = document.getElementById('change_' + index);
+changeEl.innerText = (change >= 0 ? '+' : '') + change.toFixed(2) + '%';
+changeEl.className = 'asset-change ' + (change >= 0 ? 'positive' : 'negative');
+currentData[index] = { price: last.close, change: change };
 var signal = generateSignal(sym, display, candles);
 if (signal) {
-var marker = {
-time: Math.floor(new Date().getTime() / 1000),
-position: signal.signal === 'BUY' ? 'belowBar' : 'aboveBar',
-color: signal.signal === 'BUY' ? '#00b894' : '#ff6b6b',
-shape: signal.signal === 'BUY' ? 'arrowUp' : 'arrowDown',
-text: signal.signal === 'BUY' ? 'B' : 'S',
-size: 1
-};
+var marker = { time: Math.floor(Date.now()/1000), position: signal.signal === 'BUY' ? 'belowBar' : 'aboveBar', color: signal.signal === 'BUY' ? '#00b894' : '#ff6b6b', shape: signal.signal === 'BUY' ? 'arrowUp' : 'arrowDown', text: signal.signal === 'BUY' ? 'B' : 'S', size: 1 };
 series.setMarkers([marker]);
-addSignalToUI(signal);
+updateDetails(index, signal);
+addSignalToHistory(signal);
 }
 }
-} catch (e) { console.error('خطأ في ' + sym, e); }
-}
-
-async function fetchAndAnalyzeAll() {
-if (isAnalyzing) return;
-isAnalyzing = true;
-var promises = [];
-for (var i = 0; i < SYMBOLS.length; i++) {
-promises.push(analyzeSymbol(i));
-}
-await Promise.all(promises);
-isAnalyzing = false;
+} catch (e) { console.error(e); }
 }
 
-function addSignalToUI(signal) {
-signalsHistory = [signal, ...signalsHistory].slice(0, 30);
-renderSignals();
+function updateDetails(index, signal) {
+document.getElementById('time_' + index).innerText = signal.time;
+document.getElementById('entryFixed_' + index).innerText = '$' + signal.entry;
+document.getElementById('entryLive_' + index).innerText = '$' + signal.entry;
+var pnl = ((currentData[index].price - signal.entry) / signal.entry * 100);
+var pnlStr = (pnl >= 0 ? '+' : '') + pnl.toFixed(2) + '%';
+document.getElementById('pnl_' + index).innerHTML = (pnl >= 0 ? '🟢 ' : '🔴 ') + pnlStr;
+document.getElementById('sl_' + index).innerText = '$' + signal.sl;
+document.getElementById('tp_' + index).innerText = '$' + signal.tp;
+document.getElementById('rationale_' + index).innerText = signal.rationale + ' (الثقة ' + signal.confidence + '%)';
+document.getElementById('conf_' + index).innerText = '⚡ ' + signal.confidence + '%';
+// لون الخلفية حسب الإشارة
+var card = document.getElementById('card_' + index);
+card.style.borderColor = signal.signal === 'BUY' ? '#00b894' : '#ff6b6b';
+}
+
+function addSignalToHistory(signal) {
 var stored = localStorage.getItem('signalHistory');
 var history = stored ? JSON.parse(stored) : [];
 history.push(signal);
 if (history.length > 300) history = history.slice(-300);
 localStorage.setItem('signalHistory', JSON.stringify(history));
-renderHistory();
 if (audioEnabled) playAlertSound();
+renderHistory();
 }
 
-function renderSignals() {
-var container = document.getElementById('signalsContainer');
-if (signalsHistory.length === 0) {
-container.innerHTML = '<div class="no-signals">⏳ لا توجد إشارات جديدة (ثقة >= 80%) حتى الآن</div>';
-return;
-}
-var html = '';
-signalsHistory.forEach(function(sig) {
-var typeClass = sig.signal === 'BUY' ? 'buy' : 'sell';
-var typeText = sig.signal === 'BUY' ? 'شراء 🟢' : 'بيع 🔴';
-html += '<div class="signal-card">';
-html += '<div class="signal-header"><span class="signal-symbol">' + sig.display + ' (' + sig.symbol + ')</span><span class="signal-type ' + typeClass + '">' + typeText + '</span></div>';
-html += '<div class="signal-details">';
-html += '<span>📅 التاريخ: <strong>' + sig.time + '</strong></span>';
-html += '<span>💰 الدخول: <strong>' + sig.entry + '</strong></span>';
-html += '<span class="sl">🛑 وقف الخسارة: <strong>' + sig.sl + '</strong></span>';
-html += '<span class="tp">🎯 الهدف (TP): <strong>' + sig.tp + '</strong></span>';
-html += '</div>';
-html += '<div class="analysis-box"><span class="label">📋 سبب الدخول (Trade Rationale):</span><p>' + sig.rationale + '</p><span class="confidence-badge">⚡ نسبة الثقة: ' + sig.confidence + '%</span></div>';
-html += '</div>';
-});
-container.innerHTML = html;
+async function fetchAndAnalyzeAll() {
+if (isAnalyzing) return;
+isAnalyzing = true;
+for (var i = 0; i < SYMBOLS.length; i++) await analyzeSymbol(i);
+isAnalyzing = false;
 }
 
 function renderHistory() {
 var container = document.getElementById('historyList');
 var stored = localStorage.getItem('signalHistory');
 var history = stored ? JSON.parse(stored) : [];
-if (history.length === 0) {
-container.innerHTML = '<div style="color:#6a6f7d;text-align:center;">لا توجد إشارات مسجلة</div>';
-return;
-}
+if (!history.length) { container.innerHTML = '<div style="color:#6a6f7d;text-align:center;">لا توجد إشارات</div>'; return; }
 var html = '';
-history.slice().reverse().forEach(function(sig) {
-var typeClass = sig.signal === 'BUY' ? 'buy' : 'sell';
-html += '<div class="history-item"><span class="h-symbol">' + (sig.display || sig.symbol) + '</span><span class="h-type ' + typeClass + '">' + sig.signal + '</span><span class="h-time">' + sig.time + '</span><span>ثقة: ' + sig.confidence + '%</span></div>';
+history.slice().reverse().slice(0, 50).forEach(function(sig) {
+var cls = sig.signal === 'BUY' ? 'buy' : 'sell';
+html += '<div class="history-item"><span>' + (sig.display || sig.symbol) + '</span><span class="signal-tag ' + cls + '">' + sig.signal + '</span><span>' + sig.time + '</span><span>ثقة ' + sig.confidence + '%</span></div>';
 });
 container.innerHTML = html;
 }
@@ -382,23 +294,22 @@ if (confirm('مسح كل الإشارات؟')) { localStorage.removeItem('signal
 function playAlertSound() {
 try {
 if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-var osc = audioCtx.createOscillator();
-var gain = audioCtx.createGain();
+var osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
 osc.connect(gain); gain.connect(audioCtx.destination);
 osc.frequency.value = 880; osc.type = 'sine';
 gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
-osc.start(); osc.stop(audioCtx.currentTime + 0.25);
+osc.start(); osc.stop(audioCtx.currentTime + 0.2);
 } catch (e) {}
 }
 
 function shareApp() {
 var url = window.location.href;
-if (navigator.share) { navigator.share({ title: 'تداول FVG', text: 'أداة سيولة احترافية', url: url }); }
+if (navigator.share) navigator.share({ title: 'تداول FVG', text: 'أداة سيولة احترافية', url: url });
 else { navigator.clipboard.writeText(url).then(function(){ alert('تم نسخ الرابط!'); }).catch(function(){ prompt('انسخ الرابط:', url); }); }
 }
 
 function init() {
-initCharts();
+initAssets();
 renderHistory();
 fetchAndAnalyzeAll();
 if (intervalId) clearInterval(intervalId);
